@@ -52,8 +52,6 @@ Requires:       zenity
 # native arch drivers as well, by not specifying _isa macro, native arch
 # packages are preferred. This will make sure people have all necessary drivers
 # for both i686 and x86_64 games.
-Requires:       mesa-dri-drivers%{?_isa}
-Requires:       mesa-dri-drivers
 Requires:       mesa-vulkan-drivers%{?_isa}
 Requires:       mesa-vulkan-drivers
 Requires:       vulkan-loader%{?_isa}
@@ -74,8 +72,6 @@ Requires:       libXScrnSaver%{?_isa}
 Requires:       mesa-libGL%{?_isa}
 Requires:       mesa-libEGL%{?_isa}
 Requires:       NetworkManager-libnm%{?_isa}
-Requires:       nss%{?_isa}
-Requires:       pulseaudio-libs%{?_isa}
 
 # Required for sending out crash reports to Valve
 Requires:       libcurl%{?_isa}
@@ -98,10 +94,6 @@ Requires:       libdbusmenu-gtk3%{?_isa} >= 16.04.0
 
 # Required by Feral interactive games
 Requires:       libatomic%{?_isa}
-
-# Required by Shank
-Requires:       (alsa-plugins-pulseaudio%{?_isa} if pulseaudio)
-Requires:       (pipewire-alsa%{?_isa} if pipewire)
 
 # Game performance is increased with gamemode (for games that support it)
 Recommends:     gamemode
@@ -191,6 +183,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_metainfodir}/%{appstream_id
 %{_udevrulesdir}/*
 
 %changelog
+* Sun Jul 9 2023 RJ Trujillo <eyecantcu@pm.me> - 10.0.0.78-1
+- Remove broken dependencies
+
 * Fri May 12 2023 Simone Caronni <negativo17@gmail.com> - 1.0.0.78-1
 - Update to 1.0.0.78.
 
